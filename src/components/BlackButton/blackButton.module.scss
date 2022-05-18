@@ -1,0 +1,23 @@
+.moreWrap{
+  display: flex;
+  justify-content: center;
+}
+
+.more {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #FFFFFF;
+  padding: 8px 38px;
+  background: #1D1D1B;
+  cursor: pointer;
+  transition: .15s;
+
+  &:hover{
+    background: #33363D;
+  }
+
+  &:active {
+    background: #0C0C0B;
+  }
+}

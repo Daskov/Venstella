@@ -1,0 +1,46 @@
+@mixin MQ($size) {
+  @if $size == desktop {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  } @else if $size == l-tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $size == m-tablet {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $size == l-phone {
+    @media (max-width: 640px) {
+      @content;
+    }
+  } @else if $size == phone {
+    @media (max-width: 425px) {
+      @content;
+    }
+  }
+}
+
+.container {
+  $paddingContainer: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 #{$paddingContainer};
+  @include MQ(desktop) {
+    max-width: calc(1024px - #{$paddingContainer * 2});
+  }
+  @include MQ(l-tablet) {
+    max-width: calc(768px - #{$paddingContainer * 2});
+  }
+  @include MQ(m-tablet) {
+    max-width: calc(640px - #{$paddingContainer * 2});
+  }
+  @include MQ(l-phone) {
+    max-width: 100%;
+  }
+  @include MQ(phone) {
+    max-width: 100%;
+  }
+}

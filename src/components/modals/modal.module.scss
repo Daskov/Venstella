@@ -1,0 +1,343 @@
+@import "../../assets/scss/app-settings";
+
+.wrap {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: auto;
+
+  .outerClose {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .feedbackError {
+    color: red;
+    font-size: 12px;
+  }
+
+  &#cartModal .modal {
+    padding: 32px 24px;
+    margin: 100px 16px 50px 16px;
+
+    @include MQ(phone) {
+      padding: 20px 12px;
+    }
+
+    .close {
+      top: 32px;
+      right: 24px;
+
+      @include MQ(phone) {
+        top: 18px;
+        right: 12px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .title {
+      margin-bottom: 24px;
+
+      @include MQ(phone) {
+        font-size: 16px;
+      }
+    }
+
+    .inputTitle {
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      margin-bottom: 4px;
+      color: #808080;
+
+      @include MQ(phone) {
+        font-size: 12px;
+      }
+
+      &.error {
+        color: #E5271B;
+      }
+    }
+  }
+}
+
+#supportModal.wrap.active,
+#successModal.wrap.active,
+#cartModal.wrap.active {
+  opacity: 1;
+  visibility: visible;
+
+  .modal {
+    transform: scale(1);
+  }
+}
+
+.modal {
+  padding: 32px 38px;
+  width: 100%;
+  max-width: 440px;
+  background: #FFFFFF;
+  position: relative;
+  z-index: 1;
+  transition: .2s;
+  transform: scale(0);
+  margin: 0 16px;
+
+  @include MQ(phone) {
+    padding: 24px 16px;
+  }
+
+  .close {
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/img/svg/basket.svg") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    cursor: pointer;
+
+    @include MQ(phone) {
+      width: 20px;
+      height: 20px;
+      top: 8px;
+      right: 8px;
+    }
+  }
+
+  .title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 125%;
+    color: #393939;
+    margin-bottom: 6px;
+
+    @include MQ(phone) {
+      font-size: 14px;
+    }
+  }
+
+  .subtitle {
+    font-size: 18px;
+    line-height: 150%;
+    color: #393939;
+    margin-bottom: 12px;
+
+    @include MQ(phone) {
+      font-size: 12px;
+    }
+  }
+
+  .fields {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .inputLabel {
+    background: #FFFFFF;
+    border: 1px solid rgba(31, 31, 31, 0.08);
+    height: 44px;
+    display: block;
+
+    &.iconLabel {
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 24px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        flex-shrink: 0;
+      }
+
+      &.person::before {
+        background-image: url("../../assets/img/svg/person.svg");
+      }
+
+      &.tel::before {
+        background-image: url("../../assets/img/svg/tel-outline.svg");
+      }
+
+      &.error {
+        border-color: red;
+      }
+    }
+
+    .input {
+      width: 100%;
+      height: 100%;
+      padding: 0 12px;
+      border: none;
+      font-size: 14px;
+      color: #393939;
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+
+      &::placeholder {
+        color: #BEBEBE;
+        transition: .2s;
+      }
+    }
+  }
+
+  .submit {
+    height: 44px;
+    line-height: 44px;
+    background: #1D1D1B;
+    font-weight: 500;
+    font-size: 14px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    transition: .15s;
+
+    &[disabled] {
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;
+      cursor: default;
+
+      &:hover {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), #1D1D1B;
+      }
+    }
+
+    &:hover{
+      background: #33363D;
+    }
+
+    &:active {
+      background: #0C0C0B;
+    }
+  }
+
+  &.successModal {
+    max-width: 330px;
+    padding: 28px 24px;
+
+    .title {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 100%;
+      margin-bottom: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 64px;
+        height: 64px;
+        background: url("../../assets/img/svg/check.svg") no-repeat center;
+        background-size: contain;
+        margin-bottom: 12px;
+      }
+    }
+
+    .subtitle {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 150%;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.agreement {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 11px;
+  align-items: center;
+  margin: 20px 0 35px 0;
+
+  .checkMark {
+    position: relative;
+
+    .checkInput {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+
+      &:checked + .checkbox {
+        background-color: #393939;
+        border-color: #393939;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 14px;
+          height: 10px;
+          background: url("../../assets/img/svg/checkmark.svg") no-repeat center;
+          background-size: contain;
+        }
+      }
+    }
+
+    .checkbox {
+      display: block;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #919191;
+      border-radius: 3px;
+
+      &.error {
+        border-color: red;
+      }
+    }
+  }
+
+  .agreementText {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #393939;
+
+    @include MQ(phone) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+
+  .agreementLink {
+    color: #2F80ED;
+  }
+}
+
+.errorText {
+  color: red;
+  font-size: 12px;
+  display: block;
+  margin-top: 2px;
+}

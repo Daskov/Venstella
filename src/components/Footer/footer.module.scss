@@ -1,0 +1,140 @@
+@import "../../assets/scss/app-settings";
+
+.footer {
+  padding: 48px 0 24px;
+  background: #1D1D1B;
+
+  @include MQ(phone) {
+    padding: 24px 0;
+  }
+}
+
+.footerInner {
+  display: inline-grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 145px;
+
+  @include MQ(desktop) {
+    gap: 80px;
+  }
+
+  @include MQ(l-tablet) {
+    grid-template-columns: auto auto auto;
+    row-gap: 50px;
+  }
+
+  @include MQ(m-tablet) {
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+
+  @include MQ(phone) {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .logo {
+    height: 100px;
+
+    @include MQ(l-tablet) {
+      grid-column: span 3;
+    }
+
+    @include MQ(m-tablet) {
+      grid-column: span 2;
+    }
+
+    @include MQ(phone) {
+      display: none;
+    }
+  }
+
+  .columnTitle {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #E2E2E2;
+    margin-bottom: 18px;
+
+    @include MQ(phone) {
+      font-size: 14px;
+    }
+  }
+
+  .link {
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    display: block;
+
+    @include MQ(phone) {
+      font-size: 12px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 14px;
+
+      @include MQ(phone) {
+        margin-bottom: 12px;
+      }
+    }
+
+    &.iconLink {
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
+        @include MQ(phone) {
+          width: 16px;
+          height: 16px;
+        }
+      }
+
+      &.tel::before {
+        background-image: url("../../assets/img/svg/call.svg");
+      }
+
+      &.email::before {
+        background-image: url("../../assets/img/svg/email.svg");
+      }
+
+      &.instagram::before {
+        background-image: url("../../assets/img/svg/instagram.svg");
+      }
+
+      &.telegram::before {
+        background-image: url("../../assets/img/svg/telegram.svg");
+      }
+
+      &.whatsapp::before {
+        background-image: url("../../assets/img/svg/whatsapp.svg");
+      }
+    }
+  }
+}
+
+.projectAuthor {
+  font-size: 12px;
+  line-height: 15px;
+  color: #B9B9B9;
+  padding-top: 32px;
+
+  @include MQ(phone) {
+    padding-top: 16px;
+    margin-top: 26px;
+    border-top: 1px solid #363635;
+  }
+
+  a {
+    color: inherit;
+  }
+}

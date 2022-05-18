@@ -1,0 +1,91 @@
+@import "../../../assets/scss/app-settings";
+
+.iconLinks {
+  display: flex;
+  flex-shrink: 0;
+
+  .iconLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #393939;
+    display: flex;
+    align-items: center;
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    &.favorites .icon {
+      background-image: url("../../../assets/img/svg/heart.svg");
+    }
+
+    &.cart .icon {
+      background-image: url("../../../assets/img/svg/shopping-bag.svg");
+    }
+
+    &:first-child {
+      padding-right: 20px;
+      margin-right: 20px;
+      border-right: 1px solid #D3D3D3;
+
+      .quantity {
+        right: 20px;
+      }
+    }
+  }
+
+  &.desktop {
+    @include MQ(l-tablet) {
+      display: none;
+    }
+  }
+
+  &.mobile {
+    display: none;
+
+    @include MQ(l-tablet) {
+      display: grid;
+      border-top: 1px solid rgba(211, 211, 211, .6);
+      padding-top: 6px;
+      margin-top: 6px;
+
+      .iconLink{
+        padding: 10px 0;
+        font-size: 13px;
+        font-weight: 500;
+
+        .icon {
+          width: 16px;
+          height: 16px;
+        }
+
+        &:first-child {
+          border-right: none;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.icon::after {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.icon.active::after{
+  background: #E5271B;
+}

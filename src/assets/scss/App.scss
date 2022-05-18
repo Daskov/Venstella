@@ -1,0 +1,162 @@
+@import "./app-settings";
+
+*, ::after, ::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
+  text-decoration: none;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #F8F8F8;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(215, 215, 215, 0.6);
+    z-index: 98;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+  }
+
+  &.showLayer {
+    &::after{
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .headerBottom::after{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.headerBottom::after{
+  content: "";
+  display: block;
+  width: 100%;
+  height: calc(100% + 1px);
+  top: 0;
+  left: 0;
+  background: rgba(215, 215, 215, 0.6);
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.sectionTitle {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #393939;
+  margin-bottom: 18px;
+
+  @include MQ(phone) {
+    font-size: 18px;
+  }
+
+  &.pageTitle {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+
+  @include MQ(l-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include MQ(m-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include MQ(phone) {
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &.similarProducts {
+    grid-template-columns: repeat(5, 1fr);
+
+    @include MQ(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include MQ(l-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include MQ(m-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &.collectionInnerGrid {
+    @include MQ(phone) {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+}
+
+.mainBannerSwiper .swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 40px;
+
+  @include MQ(l-phone) {
+    bottom: 20px;
+  }
+}
+
+.mainBannerSwiper .swiper-pagination-bullet{
+  background: #FFFFFF;
+  border: 1px solid rgba(29, 29, 27, 0.3);
+  opacity: 1;
+  transition: .2s;
+  margin: 0 3px;
+
+  &.swiper-pagination-bullet-active {
+    background: #1D1D1B;
+    border-color: #1D1D1B;
+  }
+}
+
+.mainBannerSwiper svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

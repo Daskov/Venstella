@@ -1,0 +1,28 @@
+@import "../../../assets/scss/app-settings";
+
+.nav {
+  display: flex;
+
+  @include MQ(l-tablet) {
+    flex-direction: column;
+  }
+}
+
+.navLink {
+  font-size: 17px;
+  line-height: 21px;
+  color: #393939;
+  margin-right: 24px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include MQ(l-tablet) {
+    margin-right: 0;
+    padding: 10px 0;
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+}

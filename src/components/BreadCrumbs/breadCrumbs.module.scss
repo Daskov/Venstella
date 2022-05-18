@@ -1,0 +1,39 @@
+@import "../../assets/scss/app-settings";
+
+.breadCrumbs {
+  padding: 22px 0;
+  background: #FFFFFF;
+  margin-bottom: 32px;
+
+  @include MQ(phone) {
+    margin-bottom: 24px;
+  }
+
+  .breadCrumbsInner {
+    display: flex;
+    flex-wrap: wrap;
+
+    .link {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 17px;
+      color: #393939;
+      display: flex;
+      align-items: center;
+
+      &:last-child {
+        color: #979797;
+        cursor: auto;
+      }
+
+      &:not(:last-child) {
+        margin-right: 16px;
+
+        &::after{
+          content: '/';
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.newsGrid {
+  display: grid;
+  gap: 12px;
+  max-height: 1750px;
+  overflow-y: auto;
+  scrollbar-color: #979797 #EEEEEE;
+  scrollbar-width: thin;
+  padding-bottom: 70px;
+
+  &::-webkit-scrollbar {
+    border-radius: 4px;
+    width: 3px;
+    background: #EEEEEE;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #979797;
+    border-radius: 4px;
+  }
+}

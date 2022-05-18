@@ -1,0 +1,95 @@
+@import "../../assets/scss/app-settings";
+
+.collectionItem {
+  @include MQ(phone) {
+    flex-shrink: 0;
+    margin-right: 8px;
+    width: 260px;
+
+    &:last-child{
+      margin-right: 0;
+    }
+
+    &.pageCollectionItem {
+      width: 100%;
+      margin-right: 0;
+
+      .imageWrap {
+        height: 330px;
+      }
+    }
+  }
+
+  .imageWrap{
+    position: relative;
+    height: 330px;
+
+    @include MQ(l-tablet) {
+      height: 300px;
+    }
+
+    &::after{
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(179.51deg, rgba(0, 0, 0, 0) 63.22%, rgba(0, 0, 0, 0.18) 83.47%, rgba(0, 0, 0, 0.3) 103.91%);
+      background-blend-mode: darken, normal;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .image{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .imageTitle {
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 18px;
+      text-align: center;
+      color: #FFFFFF;
+      position: absolute;
+      bottom: 12px;
+      left: 16px;
+      right: 16px;
+      z-index: 1;
+    }
+  }
+
+  .collectionMore{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #FFFFFF;
+    padding: 12px;
+    background: #1D1D1B;
+    transition: .15s;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: #1D1D1B;
+      background: white;
+
+      path {
+        fill: #1D1D1B;
+      }
+    }
+
+    svg{
+      margin-left: 10px;
+
+      path{
+        transition: .15s;
+      }
+    }
+  }
+}

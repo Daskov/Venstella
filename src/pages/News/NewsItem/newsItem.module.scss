@@ -1,0 +1,61 @@
+@import '../../../assets/scss/app-settings';
+
+.item {
+  padding: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 0.02);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+
+  @include MQ(m-tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  @include MQ(phone) {
+    padding: 14px 12px;
+  }
+
+  .image {
+    width: 226px;
+    height: 226px;
+    object-fit: cover;
+
+    @include MQ(phone) {
+      width: 100%;
+    }
+  }
+
+  .title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: #393939;
+    margin-bottom: 6px;
+  }
+
+  .description {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 165%;
+    color: #5B5B5B;
+
+    .more {
+      cursor: pointer;
+      color: #393939;
+      font-weight: 600;
+
+      @include MQ(phone) {
+        display: block;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: center;
+        color: #1D1D1B;
+        padding: 8px;
+        border: 1px solid #EDEDED;
+        margin-top: 6px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "../../assets/scss/app-settings";
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+
+  .item {
+    height: 44px;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #979797;
+    cursor: pointer;
+    transition: .15s;
+
+    &.none {
+      cursor: default;
+    }
+
+    &[aria-disabled="true"] {
+      pointer-events: none;
+      background: #F1F1F1;
+
+      &:hover {
+        color: #979797;
+        background: #F1F1F1;
+      }
+    }
+
+    path {
+      transition: .15s;
+    }
+
+    &:hover:not(.none),
+    &.active{
+      color: white;
+      background: #1D1D1B;
+
+      path {
+        fill: white;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 12px;
+    }
+
+    @include MQ(l-phone) {
+      width: 32px;
+      height: 32px;
+      font-size: 12px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      &:not(:last-child) {
+        margin-right: 6px;
+      }
+    }
+  }
+}

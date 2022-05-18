@@ -1,0 +1,41 @@
+@import "../../assets/scss/app-settings";
+
+.help {
+  margin-bottom: 70px;
+  display: grid;
+  grid-template-columns: 5fr 6.5fr;
+  gap: 24px;
+  align-items: flex-start;
+
+  @include MQ(l-tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  .imgWrap {
+    position: relative;
+
+    @include MQ(l-tablet) {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .rectangle {
+    display: block;
+    width: 100%;
+  }
+}
+
+.helpGrid {
+  display: grid;
+  gap: 12px;
+}

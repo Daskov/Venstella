@@ -1,0 +1,20 @@
+.react-tel-input {
+  height: 100%;
+
+  .flag-dropdown {
+    background: none;
+    border: none;
+  }
+}
+
+.react-tel-input .form-control {
+  width: 100%;
+  border: none;
+  height: 100%;
+  padding-left: 40px;
+}
+
+.react-tel-input .country-list {
+  width: 250px;
+  overflow: hidden;
+}

@@ -1,0 +1,14 @@
+@import "../../assets/scss/app-settings";
+
+.searchResult {
+  margin-bottom: 70px;
+}
+
+.notification {
+  color: #393939;
+  margin-bottom: 48px;
+
+  @include MQ(phone) {
+    font-size: 13px;
+  }
+}

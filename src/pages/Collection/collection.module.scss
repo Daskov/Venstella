@@ -1,0 +1,28 @@
+@import "../../assets/scss/app-settings";
+
+.collection {
+  margin-bottom: 70px;
+}
+
+.collectionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+
+  @include MQ(l-tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include MQ(m-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include MQ(phone) {
+    grid-template-columns: 1fr;
+
+    .collectionItem {
+      width: 100%;
+    }
+  }
+}
